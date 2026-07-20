@@ -20,6 +20,7 @@ class AppTextField extends StatefulWidget {
     this.onSubmitted,
     this.inputFormatters,
     this.maxLines = 1,
+    this.mainLines=1 ,
     this.readOnly = false,
     this.enabled = true,
     this.obscureText = false,
@@ -54,6 +55,7 @@ class AppTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   final int maxLines;
+  final int mainLines ;
 
   final bool obscureText;
 
@@ -104,6 +106,7 @@ class _AppTextFieldState extends State<AppTextField> {
               : TextInputAction.next),
 
       obscureText: obscure,
+      minLines: widget.mainLines,
 
       maxLines: widget.obscureText ? 1 : widget.maxLines,
 
