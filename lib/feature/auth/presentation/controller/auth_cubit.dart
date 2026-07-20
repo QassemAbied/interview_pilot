@@ -74,7 +74,7 @@ class AuthCubit extends Cubit<AuthState> {
       },
       (_) async {
         await createUser(params);
-
+        if (isClosed) return;
         emit(state.copyWith(status: RequestStatus.success));
       },
     );
