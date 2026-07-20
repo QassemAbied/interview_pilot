@@ -22,7 +22,6 @@ class SupAbaseAuth {
       email: authParams.email,
       data: {
         'name': authParams.name,
-        'phone': authParams.phone,
         'email': authParams.email,
         'image': authParams.image,
       },
@@ -33,19 +32,23 @@ class SupAbaseAuth {
     await supABase.auth.signOut();
   }
 
+
   Future<void> createUser({required AuthParams authParams}) async {
-    await supABase.from('users').insert({
+    await supABase.from('profiles').insert({
       'id': supABase.currentUserId,
       'name': authParams.name,
-      'phone': authParams.phone,
       'email': authParams.email,
-      'image': authParams.image,
+      'avatar_url': authParams.image,
+      'bio': null,
+      'language': 'en',
+      'streak_days': 0,
+      'updated_at': DateTime.now().toIso8601String(),
     });
   }
 
   Future<UserModel> getUser() async {
     final response = await supABase
-        .from('users')
+        .from('profiles')
         .select()
         .eq('id', supABase.currentUserId)
         .maybeSingle();
@@ -57,12 +60,13 @@ class SupAbaseAuth {
 
   Future<void> updateUser({required AuthParams authParams}) async {
     await supABase
-        .from('users')
+        .from('profiles')
         .update({
           'name': authParams.name,
-          'phone': authParams.phone,
-          'email': authParams.email,
-          'image': authParams.image,
+          'bio': authParams.bio,
+          'language': authParams.language,
+          'avatar_url': authParams.image,
+          'updated_at': DateTime.now().toIso8601String(),
         })
         .eq('id', supABase.currentUserId);
   }
@@ -78,7 +82,7 @@ class SupAbaseAuth {
     await supABase.auth.updateUser(UserAttributes(password: password));
   }
 
- bool isLoggedIn() {
+  bool isLoggedIn() {
     final session = supABase.auth.currentSession;
 
     return session != null;
