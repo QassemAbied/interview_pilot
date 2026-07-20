@@ -11,6 +11,7 @@ final class AppDialog {
     required String title,
     required String message,
     String buttonText = "OK",
+    VoidCallback? onConfirm,
   }) {
     return showDialog(
       context: context,
@@ -30,7 +31,7 @@ final class AppDialog {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed:  onConfirm,
               child: Text(
                 buttonText,
                 style: AppTextStyle.semiBold(
@@ -41,6 +42,15 @@ final class AppDialog {
             ),
           ],
         );
+      },
+    );
+  }
+
+  static Future<void> showCircle(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (_) {
+        return Center(child: CircularProgressIndicator());
       },
     );
   }
