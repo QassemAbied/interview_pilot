@@ -7,9 +7,12 @@ class UserMapper {
       id: model.id,
       name: model.name,
       email: model.email,
-      phone: model.phone,
-      image: model.image,
       createdAt: model.createdAt,
+      language: model.language,
+      bio: model.bio ?? '',
+      streakDays: model.streakDays,
+      updatedAt: model.updatedAt,
+      avatarUrl: model.avatarUrl ?? "",
     );
   }
 }
