@@ -58,7 +58,6 @@ class _RegisterFormState extends State<RegisterForm> {
       AuthParams(
         _emailController.text.trim(),
         _passwordController.text.trim(),
-        _phoneController.text.trim(),
         _nameController.text.trim(),
 
         null,
@@ -71,8 +70,7 @@ class _RegisterFormState extends State<RegisterForm> {
     return AuthBlocListener(
       onSuccess: () async {
         AppSnackBar.success(context, message: 'Account created successfully');
-        context.pop();
-        await context.pushNamed(RouteNames.login);
+        context.goNamed(RouteNames.login);
       },
 
       child: BlocBuilder<AuthCubit, AuthState>(
