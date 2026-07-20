@@ -56,7 +56,6 @@ class _LoginFormState extends State<LoginForm> {
         _passwordController.text,
         null,
         null,
-        null,
       ),
     );
   }
@@ -66,7 +65,6 @@ class _LoginFormState extends State<LoginForm> {
     return AuthBlocListener(
       onSuccess: () {
         context.pop();
-        context.goNamed(RouteNames.home);
       },
       child: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
