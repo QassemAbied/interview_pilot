@@ -10,6 +10,8 @@ abstract class RoutePath {
   static const restPassword = '/rest-password';
 
   static const home = '/home';
+  static const interviewSetup = '/interviewSetup';
+
 
   static const profile = '/profile';
 
@@ -29,6 +31,7 @@ abstract class RouteNames {
   static const forgetPassword = 'forget-password';
   static const restPassword = 'rest-password';
   static const home = 'home';
+  static const interviewSetup = 'interviewSetup';
 
   static const profile = 'profile';
 

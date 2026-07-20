@@ -3,9 +3,11 @@ import 'package:interview_pilot/core/routing/route_names.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/forget_password/forget_password_screen.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/register/register_screen.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/rest_password/rest_password_screen.dart';
+import 'package:interview_pilot/feature/interview/presentation/screen/interview_setup/interview_setup_screen.dart';
 import 'package:interview_pilot/feature/splash_screen.dart';
 import '../../feature/auth/presentation/screens/login/login_screen.dart';
-import '../../feature/home/home_screen.dart';
+import '../../feature/home/presentation/screen/home_screen.dart';
+import '../../feature/interview_chat/presentation/screen/interview_chat_screen.dart';
 
 class AppRoutes {
   static List<RouteBase> routes = [
@@ -38,6 +40,19 @@ class AppRoutes {
       path: RoutePath.restPassword,
       name: RouteNames.restPassword,
       builder: (context, state) => const RestPasswordScreen(),
+    ),
+    GoRoute(
+      path: RoutePath.interviewSetup,
+      name: RouteNames.interviewSetup,
+      builder: (context, state) => const InterviewSetupScreen(),
+    ),
+    GoRoute(
+      path: '${RoutePath.interview}/:interviewId',
+      name: RouteNames.interview,
+
+      builder: (context, state) {
+        final interviewId = state.pathParameters['interviewId']!;
+       return InterviewChatScreen(interviewId: interviewId);}
     ),
   ];
 }
