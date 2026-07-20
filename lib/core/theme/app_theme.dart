@@ -78,6 +78,20 @@ abstract class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+
+      style: OutlinedButton.styleFrom(
+
+
+        side: const BorderSide(color: AppColors.primary),
+        elevation: 0,
+        backgroundColor: AppColors.white,
+        foregroundColor: AppColors.primary,
+       // minimumSize: const Size(double.infinity, 56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+
+    ),
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.primary,
