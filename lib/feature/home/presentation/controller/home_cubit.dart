@@ -24,9 +24,9 @@ class HomeCubit extends Cubit<HomeState> {
           ),
         );
       },
-      (dashboard) {
+      (interviews) {
         emit(
-          state.copyWith(dashboard: dashboard, status: RequestStatus.success),
+          state.copyWith(interviews: interviews, status: RequestStatus.success),
         );
       },
     );
