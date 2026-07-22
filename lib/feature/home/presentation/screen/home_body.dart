@@ -36,7 +36,7 @@ class HomeBody extends StatelessWidget {
                 ),
                 verticalSpace(AppSpacing.s24),
                 StartInterviewCard(
-                  onTap: ()async {
+                  onTap: () async {
                     context.pushNamed(RouteNames.interviewSetup);
                   },
                 ),
@@ -55,7 +55,9 @@ class HomeBody extends StatelessWidget {
             QuickActionModel(
               title: 'Interview\nHistory',
               icon: Icons.history,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(RouteNames.history);
+              },
             ),
             QuickActionModel(
               title: 'Statistics',
