@@ -60,7 +60,10 @@ class _MessageListState extends State<MessageList> {
       listener: (context, state) {
         if (state.isEndInterview) {
           context.pop();
-          context.pushNamed(RouteNames.home);
+          context.goNamed(
+            RouteNames.interviewResult,
+            pathParameters: {'interviewId': widget.interviewId},
+          );
         }
         _scrollToBottom();
       },
