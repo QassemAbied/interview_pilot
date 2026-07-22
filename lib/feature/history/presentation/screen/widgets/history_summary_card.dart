@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../../core/helpers/score_helper.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/app_card.dart';
@@ -13,9 +13,8 @@ class HistorySummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final averageScore = _calculateAverageScore();
-    final bestScore = _calculateBestScore();
-
+    final averageScore = ScoreHelper.calculateAverageScore(interviews);
+    final bestScore = ScoreHelper.calculateBestScore(interviews);
     return AppCard(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
       child: Row(
@@ -45,28 +44,6 @@ class HistorySummaryCard extends StatelessWidget {
 
   Widget _divider() {
     return Container(width: 1, height: 42, color: AppColors.divider);
-  }
-
-  int _calculateAverageScore() {
-    if (interviews.isEmpty) {
-      return 0;
-    }
-
-    final total = interviews.fold<int>(0, (sum, item) {
-      return sum + item.evaluation.overallScore;
-    });
-
-    return (total / interviews.length).round();
-  }
-
-  int _calculateBestScore() {
-    if (interviews.isEmpty) {
-      return 0;
-    }
-
-    return interviews
-        .map((item) => item.evaluation.overallScore)
-        .reduce((a, b) => a > b ? a : b);
   }
 }
 
