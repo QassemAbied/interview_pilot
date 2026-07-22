@@ -51,4 +51,21 @@ class InterviewEntity {
   bool get isInProgress => status == InterviewStatus.inProgress;
 
   bool get isCancelled => status == InterviewStatus.cancelled;
+
+  static final dummy = InterviewEntity(
+    id: 'dummy-id',
+    userId: 'dummy-user-id',
+    jobTitle: 'Flutter Developer',
+    companyName: 'Technology Company',
+    jobDescription: 'Flutter Developer Job Description',
+    interviewType: InterviewType.technical,
+    level: ExperienceLevel.intern,
+    score: 85,
+    duration: 20,
+    status: InterviewStatus.completed,
+    startedAt: DateTime.now(),
+    endedAt: DateTime.now(),
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+  );
 }
