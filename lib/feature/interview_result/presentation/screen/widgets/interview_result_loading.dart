@@ -51,6 +51,7 @@ class InterviewResultSkeleton extends StatelessWidget {
     );
   }
 }
+
 const _dummyItems = [
   "Lorem ipsum dolor sit amet",
   "Lorem ipsum dolor sit amet",
