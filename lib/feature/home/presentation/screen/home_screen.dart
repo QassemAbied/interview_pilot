@@ -37,11 +37,12 @@ class HomeScreen extends StatelessWidget {
                 );
               }
 
-              final dashboard = state.dashboard;
+              final dashboard = state.interviews;
+              final interviewEvaluation = state.interviews
+                  ?.map((e) => e.evaluation)
+                  .toList();
 
-
-
-              if ( dashboard!.recentInterviews.isEmpty) {
+              if (interviewEvaluation == null) {
                 return HomeEmpty(
                   onStartInterview: () {
                     context.pushNamed(RouteNames.interviewSetup);
@@ -50,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                 );
               }
 
-              return HomeBody(dashboard: dashboard);
+              return HomeBody(dashboard: dashboard!);
             },
           ),
         ),
