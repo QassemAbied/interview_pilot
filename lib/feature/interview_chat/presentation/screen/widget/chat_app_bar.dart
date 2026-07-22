@@ -74,10 +74,10 @@ class InterviewQuestionProgress extends StatelessWidget {
                   ),
                 ),
                 EndInterviewButton(
+                  interview: interview,
                   onPressed: interview == null
                       ? null
                       : () {
-                    print('interview: $interview');
                           context.read<InterviewChatCubit>().endInterview(
                             interview: interview,
                           );
