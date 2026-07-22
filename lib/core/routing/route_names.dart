@@ -12,7 +12,10 @@ abstract class RoutePath {
   static const home = '/home';
   static const interviewSetup = '/interviewSetup';
 
-
+  static const  interviewResult = '/interview-result';
+  static const  interviewReport = '/interview-report';
+  static const String interviewPdfPreview =
+      '/interview-pdf-preview';
   static const profile = '/profile';
 
   static const interview = '/interview';
@@ -27,12 +30,14 @@ abstract class RouteNames {
   static const login = 'login';
 
   static const register = 'register';
-
   static const forgetPassword = 'forget-password';
   static const restPassword = 'rest-password';
   static const home = 'home';
   static const interviewSetup = 'interviewSetup';
-
+  static const  interviewResult = 'interview-result';
+  static const  interviewReport = 'interview-report';
+  static const String interviewPdfPreview =
+      'interview-pdf-preview';
   static const profile = 'profile';
 
   static const interview = 'interview';
