@@ -54,8 +54,8 @@ dependencies:
   flutter_tts: ^4.2.3
   permission_handler: ^12.0.1
   lottie: ^3.3.2
-  pdf: ^3.11.3
-  printing: ^5.14.2
+  pdf: ^3.12.0
+  printing: ^5.14.3
   fl_chart: ^1.1.1
   url_launcher: ^6.3.2
   share_plus: ^12.0.0
@@ -72,6 +72,7 @@ dependencies:
   markdown_widget: ^2.3.2+8
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
+  date_format: ^2.0.9
 
 #dev_dependencies:
 #  flutter_test:
