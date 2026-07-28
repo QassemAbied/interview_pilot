@@ -17,7 +17,7 @@ import '../models/quick_action_model.dart';
 import '../models/statistic_model.dart';
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({super.key, required this.dashboard,});
+  const HomeBody({super.key, required this.dashboard});
 
   final List<InterviewHistoryItemEntity> dashboard;
 
@@ -26,7 +26,6 @@ class HomeBody extends StatelessWidget {
     final averageScore = ScoreHelper.calculateAverageScore(dashboard);
     final bestScore = ScoreHelper.calculateBestScore(dashboard);
     final successInterview = ScoreHelper.calculateSuccessInterview(dashboard);
-
 
     return CustomScrollView(
       slivers: [
@@ -54,9 +53,11 @@ class HomeBody extends StatelessWidget {
         QuickActionsSection(
           actions: [
             QuickActionModel(
-              title: 'Resume\nAnalysis',
+              title: 'resumes\nAnalysis',
               icon: Icons.description_outlined,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(RouteNames.resumeAnalysis);
+              },
             ),
             QuickActionModel(
               title: 'Interview\nHistory',
@@ -68,7 +69,9 @@ class HomeBody extends StatelessWidget {
             QuickActionModel(
               title: 'Statistics',
               icon: Icons.bar_chart_rounded,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(RouteNames.statistics);
+              },
             ),
             QuickActionModel(
               title: 'Settings',
@@ -77,7 +80,7 @@ class HomeBody extends StatelessWidget {
             ),
           ],
         ),
-        RecentInterviewsSection(interviews: dashboard.map((e) => e.interview).toList()),
+        RecentInterviewsSection(interviews: dashboard),
         StatisticsSection(
           statistics: [
             StatisticModel(
