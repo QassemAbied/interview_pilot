@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/app_card.dart';
+import '../../../../../core/widgets/score_badge.dart';
 import '../../../../../core/widgets/spacing.dart';
 import '../../../domain/entities/interview_history_item_entity.dart';
 
@@ -64,7 +65,7 @@ class InterviewHistoryCard extends StatelessWidget {
 
               horizontalSpace(12),
 
-              _ScoreBadge(score: evaluation.overallScore),
+              ScoreBadge(score: evaluation.overallScore),
             ],
           ),
 
@@ -143,50 +144,6 @@ class InterviewHistoryCard extends StatelessWidget {
   }
 }
 
-class _ScoreBadge extends StatelessWidget {
-  const _ScoreBadge({required this.score});
-
-  final int score;
-
-  @override
-  Widget build(BuildContext context) {
-    final color = _scoreColor(score);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: .10),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: color.withValues(alpha: .20)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text('$score', style: AppTextStyle.bold(size: 18, color: color)),
-
-          Text('/100', style: AppTextStyle.medium(size: 10, color: color)),
-        ],
-      ),
-    );
-  }
-
-  Color _scoreColor(int score) {
-    if (score >= 90) {
-      return AppColors.success;
-    }
-
-    if (score >= 80) {
-      return AppColors.primary;
-    }
-
-    if (score >= 70) {
-      return AppColors.warning;
-    }
-
-    return AppColors.error;
-  }
-}
 
 class _InfoChip extends StatelessWidget {
   const _InfoChip({required this.icon, required this.text});

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interview_pilot/core/widgets/app_icon_background.dart';
 import '../../../../../core/constants/app_spac.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
@@ -20,10 +21,9 @@ class StatisticItem extends StatelessWidget {
           Flexible(
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: CircleAvatar(
-                radius: 24,
-                backgroundColor: statistic.color.withValues(alpha: .12),
-                child: Icon(statistic.icon, color: statistic.color, size: 24),
+              child: AppIconBackground(
+                color: statistic.color,
+                icon: statistic.icon,
               ),
             ),
           ),

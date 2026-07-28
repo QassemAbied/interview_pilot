@@ -42,4 +42,3 @@ class ResultChip extends StatelessWidget {
     );
   }
 }
-

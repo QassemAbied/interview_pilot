@@ -29,13 +29,13 @@ class HistorySummaryCard extends StatelessWidget {
           _divider(),
 
           Expanded(
-            child: _SummaryItem(value: '$averageScore', label: 'Avg Score'),
+            child: _SummaryItem(value: '$averageScore %', label: 'Avg Score'),
           ),
 
           _divider(),
 
           Expanded(
-            child: _SummaryItem(value: '$bestScore', label: 'Best Score'),
+            child: _SummaryItem(value: '$bestScore %', label: 'Best Score'),
           ),
         ],
       ),

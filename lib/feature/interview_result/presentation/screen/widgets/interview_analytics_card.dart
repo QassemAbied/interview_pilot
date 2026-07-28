@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/app_card.dart';
+import '../../../../../core/widgets/skill_progress_tile.dart';
 import '../../../../../core/widgets/spacing.dart';
 import '../../../domain/entities/technical_scores_entity.dart';
 import 'interview_radar_chart.dart';
-import 'technical_skills_card.dart';
 
 class InterviewAnalyticsCard extends StatelessWidget {
   const InterviewAnalyticsCard({

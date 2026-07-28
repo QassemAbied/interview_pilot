@@ -4,13 +4,13 @@ import '../../../../../core/constants/app_spac.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/spacing.dart';
-import '../../../../interview/domain/entities/interview_entity.dart';
+import '../../../../history/domain/entities/interview_history_item_entity.dart';
 import 'recent_interview_item.dart';
 
 class RecentInterviewsSection extends StatelessWidget {
   const RecentInterviewsSection({super.key, required this.interviews});
 
-  final List<InterviewEntity> interviews;
+  final List<InterviewHistoryItemEntity> interviews;
 
   @override
   Widget build(BuildContext context) {
