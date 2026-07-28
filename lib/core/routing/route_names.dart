@@ -1,4 +1,3 @@
-
 abstract class RoutePath {
   static const splash = '/';
 
@@ -12,10 +11,12 @@ abstract class RoutePath {
   static const home = '/home';
   static const interviewSetup = '/interviewSetup';
 
-  static const  interviewResult = '/interview-result';
-  static const  interviewReport = '/interview-report';
-  static const String interviewPdfPreview =
-      '/interview-pdf-preview';
+  static const interviewResult = '/interview-result';
+  static const interviewReport = '/interview-report';
+  static const String interviewPdfPreview = '/interview-pdf-preview';
+  static const statistics = '/statistics';
+  static const resumeAnalysis = '/resumes-analysis';
+  static const resumeResultAnalysis = '/resumes_result-analysis';
   static const profile = '/profile';
 
   static const interview = '/interview';
@@ -24,6 +25,7 @@ abstract class RoutePath {
 
   static const settings = '/settings';
 }
+
 abstract class RouteNames {
   static const splash = 'splash';
 
@@ -34,10 +36,13 @@ abstract class RouteNames {
   static const restPassword = 'rest-password';
   static const home = 'home';
   static const interviewSetup = 'interviewSetup';
-  static const  interviewResult = 'interview-result';
-  static const  interviewReport = 'interview-report';
-  static const String interviewPdfPreview =
-      'interview-pdf-preview';
+  static const interviewResult = 'interview-result';
+  static const interviewReport = 'interview-report';
+  static const String interviewPdfPreview = 'interview-pdf-preview';
+  static const statistics = 'statistics';
+  static const resumeAnalysis = 'resumes-analysis';
+  static const resumeResultAnalysis = 'resumes_result-analysis';
+
   static const profile = 'profile';
 
   static const interview = 'interview';

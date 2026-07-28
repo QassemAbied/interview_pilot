@@ -13,6 +13,10 @@ import '../../feature/interview_chat/presentation/screen/interview_chat_screen.d
 import '../../feature/interview_result/domain/entities/interview_pdf_args.dart';
 import '../../feature/interview_result/presentation/screen/interview_pdf_preview_screen.dart';
 import '../../feature/interview_result/presentation/screen/interview_result_screen.dart';
+import '../../feature/resumes/domain/entities/resume_analysis_entity.dart';
+import '../../feature/resumes/presentation/screen/resume/resume_analysis_screen.dart';
+import '../../feature/resumes/presentation/screen/resume_result/resume_result_screen.dart';
+import '../../feature/statistics/presentation/screen/statistics_screen.dart';
 import '../di/injection_container.dart';
 import '../services/pdf_service/interview_pdf_service.dart';
 
@@ -98,6 +102,28 @@ class AppRoutes {
       path: RoutePath.history,
       name: RouteNames.history,
       builder: (context, state) => const InterviewHistoryScreen(),
+    ),
+
+    GoRoute(
+      path: RoutePath.statistics,
+      name: RouteNames.statistics,
+      builder: (context, state) => const StatisticsScreen(),
+    ),
+
+    GoRoute(
+      path: RoutePath.resumeAnalysis,
+      name: RouteNames.resumeAnalysis,
+      builder: (context, state) => const ResumeAnalysisScreen(),
+    ),
+
+    GoRoute(
+      path: RoutePath.resumeResultAnalysis,
+      name: RouteNames.resumeResultAnalysis,
+      builder: (context, state) {
+
+        final analysis = state.extra as ResumeAnalysisEntity;
+        return ResumeResultScreen(analysis: analysis);
+      },
     ),
   ];
 }
