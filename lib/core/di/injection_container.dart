@@ -1,6 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:interview_pilot/core/di/app_injection.dart';
 import 'package:interview_pilot/core/di/message_injection.dart';
+import 'package:interview_pilot/core/di/resume_injection.dart';
+import 'package:interview_pilot/core/di/statistics_injection.dart';
 import 'ai_injection.dart';
 import 'auth_injection.dart';
 import 'history_injection.dart';
@@ -19,4 +21,6 @@ Future<void> setupInjection() async {
   messageInjection(sl);
   initInterviewResultInjection(sl);
   initHistoryInjection(sl);
+  initStatisticsInjection(sl);
+  initResumeInjection(sl);
 }
