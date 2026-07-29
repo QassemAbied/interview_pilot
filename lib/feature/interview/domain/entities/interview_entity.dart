@@ -68,4 +68,8 @@ class InterviewEntity {
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
   );
+  static final dummyList =List.generate(
+    5,
+        (_) => dummy,
+  );
 }
