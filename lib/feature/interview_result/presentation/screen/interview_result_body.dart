@@ -5,7 +5,7 @@ import 'package:interview_pilot/feature/interview_result/presentation/screen/wid
 import 'package:interview_pilot/feature/interview_result/presentation/screen/widgets/hero_report_card.dart';
 import 'package:interview_pilot/feature/interview_result/presentation/screen/widgets/interview_result_loading.dart';
 import 'package:interview_pilot/feature/interview_result/presentation/screen/widgets/result_action.dart';
-import 'package:interview_pilot/feature/interview_result/presentation/screen/widgets/result_actions.dart';
+import 'package:interview_pilot/core/widgets/result_Section.dart';
 import 'package:interview_pilot/feature/interview_result/presentation/screen/widgets/result_chip.dart';
 
 import '../../../../core/theme/app_colors.dart';
@@ -69,9 +69,11 @@ class InterviewResultView extends StatelessWidget {
 
                       verticalSpace(20),
 
-                      ResultSection(
+                      AppResultSection(
                         title: "Recommendations",
                         icon: Icons.rocket_launch_rounded,
+                        color: AppColors.primary,
+
                         child: Column(
                           children: evaluation.recommendations
                               .map(
