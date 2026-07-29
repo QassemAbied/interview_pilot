@@ -24,7 +24,7 @@ class ResultActions extends StatelessWidget {
         AppButton(
           title: 'Back Home',
           onPressed: () {
-            Navigator.pop(context);
+           context.goNamed(RouteNames.home);
           },
         ),
 
@@ -32,6 +32,7 @@ class ResultActions extends StatelessWidget {
 
         SizedBox(
           width: double.infinity,
+          height: 50,
           child: OutlinedButton.icon(
             onPressed: () {
               context.pushNamed(
