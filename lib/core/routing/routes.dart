@@ -3,8 +3,8 @@ import 'package:interview_pilot/core/routing/route_names.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/forget_password/forget_password_screen.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/register/register_screen.dart';
 import 'package:interview_pilot/feature/auth/presentation/screens/rest_password/rest_password_screen.dart';
+import 'package:interview_pilot/feature/home/presentation/screen/all_interview_list/all_interview_screen.dart';
 import 'package:interview_pilot/feature/interview/presentation/screen/interview_setup/interview_setup_screen.dart';
-import 'package:interview_pilot/feature/interview_result/presentation/screen/interview_report_screen.dart';
 import 'package:interview_pilot/feature/splash_screen.dart';
 import '../../feature/auth/presentation/screens/login/login_screen.dart';
 import '../../feature/history/presentation/screen/interview_history_screen.dart';
@@ -76,16 +76,6 @@ class AppRoutes {
         return InterviewResultScreen(interviewId: interviewId);
       },
     ),
-
-    GoRoute(
-      path: '${RoutePath.interviewReport}/:interviewId',
-      name: RouteNames.interviewReport,
-      builder: (context, state) {
-        final interviewId = state.pathParameters['interviewId']!;
-
-        return InterviewReportScreen(interviewId: interviewId);
-      },
-    ),
     GoRoute(
       path: RoutePath.interviewPdfPreview,
       name: RouteNames.interviewPdfPreview,
@@ -109,7 +99,11 @@ class AppRoutes {
       name: RouteNames.statistics,
       builder: (context, state) => const StatisticsScreen(),
     ),
-
+    GoRoute(
+      path: RoutePath.allInterview,
+      name: RouteNames.allInterview,
+      builder: (context, state) => const AllInterviewScreen(),
+    ),
     GoRoute(
       path: RoutePath.resumeAnalysis,
       name: RouteNames.resumeAnalysis,
