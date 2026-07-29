@@ -17,7 +17,10 @@ class EndInterviewButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return interview?.endedAt == null
+    if (interview == null) {
+      return const SizedBox.shrink();
+    }
+    return interview!.isInProgress
         ? OutlinedButton.icon(
             onPressed: () {
               AppDialog.show(
@@ -46,7 +49,7 @@ class EndInterviewButton extends StatelessWidget {
         : OutlinedButton.icon(
             onPressed: () {
               context.pushNamed(
-                RouteNames.interviewReport,
+                RouteNames.interviewResult,
                 pathParameters: {'interviewId': interview!.id},
               );
             },
