@@ -20,6 +20,7 @@ abstract class RoutePath {
   static const profile = '/profile';
 
   static const interview = '/interview';
+  static const allInterview = '/all_interview';
 
   static const history = '/history';
 
@@ -46,6 +47,7 @@ abstract class RouteNames {
   static const profile = 'profile';
 
   static const interview = 'interview';
+  static const allInterview = 'all_interview';
 
   static const history = 'history';
 
