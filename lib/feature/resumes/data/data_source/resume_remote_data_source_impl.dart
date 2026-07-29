@@ -1,17 +1,17 @@
-import '../../../../core/services/ai_service/groq_service.dart';
 import '../../../../core/services/pdf_text_extractor_service/pdf_text_extractor.dart';
 import '../../../../core/services/supabase_service/supabase_resume.dart';
 import '../../domain/entities/analyze_resume_params.dart';
 import '../models/resume_analysis_model.dart';
+import '../services/resume_ai_service.dart';
 import 'resume_remote_data_source.dart';
 
 class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
-  final GroqService groqService;
+  final ResumeAiService resumeAiService;
   final SupABaseResume supABaseResume;
   final PdfTextExtractorService pdfTextExtractorService;
 
   const ResumeRemoteDataSourceImpl({
-    required this.groqService,
+    required this.resumeAiService,
     required this.supABaseResume,
     required this.pdfTextExtractorService,
   });
@@ -30,7 +30,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
       localFilePath: params.resume.path,
     );
 
-    final analysis = await groqService.generateResumeAnalysis(
+    final analysis = await resumeAiService.generateAnalysis(
       resumeText: resumeText,
       resumeFileName: params.resume.name,
       resumeFilePath: resumeFilePath,
