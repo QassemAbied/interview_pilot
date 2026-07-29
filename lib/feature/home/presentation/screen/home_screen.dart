@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   ?.map((e) => e.evaluation)
                   .toList();
 
-              if (interviewEvaluation == null) {
+              if (interviewEvaluation!.isEmpty ) {
                 return HomeEmpty(
                   onStartInterview: () {
                     context.pushNamed(RouteNames.interviewSetup);
