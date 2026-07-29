@@ -1,16 +1,16 @@
+import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 import '../../../../feature/interview/domain/entities/interview_entity.dart';
 import '../../../../feature/interview_result/domain/entities/interview_evaluation_entity.dart';
 import '../../../../feature/interview_result/domain/entities/interview_pdf_args.dart';
+import '../../../helpers/interview_score_helper.dart';
 
 class InterviewPdfTemplate {
   const InterviewPdfTemplate();
 
-  pw.MultiPage build({
-    required InterviewPdfArgs args,
-  }) {
+  pw.MultiPage build({required InterviewPdfArgs args}) {
     return pw.MultiPage(
       pageFormat: PdfPageFormat.a4,
       margin: const pw.EdgeInsets.symmetric(horizontal: 32, vertical: 36),
@@ -37,7 +37,10 @@ class InterviewPdfTemplate {
 
           pw.SizedBox(height: 28),
 
-          _buildListSection(title: 'Strengths', items: args.evaluation.strengths),
+          _buildListSection(
+            title: 'Strengths',
+            items: args.evaluation.strengths,
+          ),
 
           pw.SizedBox(height: 28),
 
@@ -50,7 +53,7 @@ class InterviewPdfTemplate {
 
           _buildListSection(
             title: 'Recommendations',
-            items: args.evaluation.recommendations
+            items: args.evaluation.recommendations,
           ),
 
           pw.SizedBox(height: 40),
@@ -121,7 +124,7 @@ class InterviewPdfTemplate {
                 pw.SizedBox(height: 4),
 
                 pw.Text(
-                  _formatDate(evaluation.createdAt),
+                  DateFormat('dd/MM/yyyy').format(evaluation.createdAt),
                   style: pw.TextStyle(
                     fontSize: 10,
                     fontWeight: pw.FontWeight.bold,
@@ -256,7 +259,7 @@ class InterviewPdfTemplate {
           pw.SizedBox(height: 6),
 
           pw.Text(
-            _scoreTitle(score),
+            InterviewScoreHelper.getScoreTitle(score),
             style: pw.TextStyle(fontSize: 15, fontWeight: pw.FontWeight.bold),
           ),
         ],
@@ -375,7 +378,8 @@ class InterviewPdfTemplate {
   pw.Widget _buildListSection({
     required String title,
     required List<String> items,
-  }) {
+  })
+  {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
@@ -439,44 +443,5 @@ class InterviewPdfTemplate {
         ),
       ],
     );
-  }
-
-  String _scoreTitle(int score) {
-    if (score >= 90) {
-      return 'Excellent';
-    }
-
-    if (score >= 80) {
-      return 'Very Good';
-    }
-
-    if (score >= 70) {
-      return 'Good';
-    }
-
-    if (score >= 60) {
-      return 'Fair';
-    }
-
-    return 'Needs Improvement';
-  }
-
-  String _formatDate(DateTime date) {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    return '${months[date.month - 1]} ${date.day}, ${date.year}';
   }
 }

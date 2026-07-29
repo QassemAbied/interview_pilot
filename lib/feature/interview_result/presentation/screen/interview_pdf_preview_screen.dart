@@ -7,9 +7,9 @@ class InterviewPdfPreviewScreen extends StatelessWidget {
   const InterviewPdfPreviewScreen({
     super.key,
 
-    required this.pdfService, required this.args,
+    required this.pdfService,
+    required this.args,
   });
-
 
   final InterviewPdfArgs args;
   final InterviewPdfService pdfService;
@@ -17,8 +17,7 @@ class InterviewPdfPreviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Interview Report'),
-          centerTitle: true),
+      appBar: AppBar(title: const Text('Interview Report')),
       body: PdfPreview(
         build: (_) {
           return pdfService.generate(args: args);
