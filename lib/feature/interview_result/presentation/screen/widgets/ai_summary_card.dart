@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:interview_pilot/core/widgets/result_Section.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/widgets/app_card.dart';
-import '../../../../../core/widgets/spacing.dart';
+
 
 class AiSummaryCard extends StatelessWidget {
   const AiSummaryCard({super.key, required this.summary});
@@ -12,47 +11,17 @@ class AiSummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(alpha: .1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Icon(
-                  Icons.auto_awesome_rounded,
-                  color: AppColors.primary,
-                ),
-              ),
-
-              horizontalSpace(12),
-
-              Text(
-                "AI Summary",
-                style: AppTextStyle.bold(
-                  size: 18,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-            ],
-          ),
-
-          verticalSpace(20),
-
-          Text(
-            summary,
-            style: AppTextStyle.regular(
-              size: 15,
-              height: 1.7,
-              color: AppColors.textSecondary,
-            ),
-          ),
-        ],
+    return AppResultSection(
+      title: "Summary",
+      color: AppColors.primary,
+      icon: Icons.auto_awesome_rounded,
+      child: Text(
+        summary,
+        style: AppTextStyle.regular(
+          size: 15,
+          height: 1.7,
+          color: AppColors.textSecondary,
+        ),
       ),
     );
   }
