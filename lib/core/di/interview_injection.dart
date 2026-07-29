@@ -6,7 +6,6 @@ import '../../feature/interview/data/interview_repository_impl.dart';
 import '../../feature/interview/domain/interview_repository.dart';
 import '../../feature/interview/domain/use_case/create_interview_use_case.dart';
 import '../../feature/interview/domain/use_case/delete_interview_use_case.dart';
-import '../../feature/interview/domain/use_case/get_all_interview_use_case.dart';
 import '../../feature/interview/domain/use_case/get_interview_use_case.dart';
 import '../../feature/interview/domain/use_case/update_interview_use_case.dart';
 import '../services/supabase_service/supabase_interview.dart';
@@ -20,7 +19,6 @@ void initInterviewInjection(GetIt sl) {
     () => InterviewRepositoryImpl(sl()),
   );
   sl.registerLazySingleton(() => CreateInterviewUseCase(sl()));
-  sl.registerLazySingleton(() => GetAllInterviewUseCase(sl()));
   sl.registerLazySingleton(() => GetInterviewUseCase(sl()));
   sl.registerLazySingleton(() => UpdateInterviewUseCase(sl()));
   sl.registerLazySingleton(() => DeleteInterviewUseCase(sl()));
