@@ -113,11 +113,19 @@ class _ResumeAnalysisScreenState extends State<ResumeAnalysisScreen> {
                             targetJobController: _targetJobController,
                             jobDescriptionController: _jobDescriptionController,
                             isAnalyzeEnabled: state.selectedResume != null,
-                            onAnalyze: () {
-                              context.read<ResumeCubit>().analyzeResume(
+                            onAnalyze: ()async {
+                            await  context.read<ResumeCubit>().analyzeResume(
                                 targetJob: _targetJobController.text,
                                 jobDescription: _jobDescriptionController.text,
-                              );
+                              ).then((_){
+
+                              _targetJobController.clear();
+                              _jobDescriptionController.clear();
+                              FocusScope.of(context).unfocus();
+                              context.read<ResumeCubit>().removeResume();
+                            });
+
+
                             },
                           ),
 
