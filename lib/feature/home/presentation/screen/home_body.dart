@@ -80,7 +80,10 @@ class HomeBody extends StatelessWidget {
             ),
           ],
         ),
-        RecentInterviewsSection(interviews: dashboard),
+        RecentInterviewsSection(
+          interviews: dashboard.map((e) => e.interview).toList(),
+          interview: dashboard,
+        ),
         StatisticsSection(
           statistics: [
             StatisticModel(
