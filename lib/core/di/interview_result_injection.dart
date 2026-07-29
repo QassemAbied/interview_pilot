@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import '../../feature/interview_result/data/data_source/interview_result_remote_data_source.dart';
 import '../../feature/interview_result/data/data_source/interview_result_remote_data_source_impl.dart';
 import '../../feature/interview_result/data/interview_result_repository_impl.dart';
+import '../../feature/interview_result/data/services/interview_evaluation_ai_service.dart';
 import '../../feature/interview_result/domain/interview_result_repository.dart';
 import '../../feature/interview_result/domain/use_case/generate_evaluation_use_case.dart';
 import '../../feature/interview_result/domain/use_case/get_evaluation_use_case.dart';
@@ -18,11 +19,14 @@ void initInterviewResultInjection(GetIt sl) {
   sl.registerLazySingleton<InterviewResultRepository>(
     () => InterviewResultRepositoryImpl(remoteDataSource: sl()),
   );
+  sl.registerLazySingleton<InterviewEvaluationAiService>(
+    () => InterviewEvaluationAiService(groqService: sl()),
+  );
   sl.registerLazySingleton<InterviewResultRemoteDataSource>(
     () => InterviewResultRemoteDataSourceImpl(
       messageService: sl(),
       evaluationService: sl(),
-      groqService: sl(),
+      interviewEvaluationAiService: sl(),
     ),
   );
   sl.registerLazySingleton(() => GenerateEvaluationUseCase(sl()));
