@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:interview_pilot/core/widgets/app_icon_background.dart';
 
-import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/widgets/app_card.dart';
-import '../../../../../core/widgets/spacing.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_styles.dart';
+import 'app_card.dart';
+import 'spacing.dart';
 
-class ResultSection extends StatelessWidget {
-  const ResultSection({
+class AppResultSection extends StatelessWidget {
+  const AppResultSection({
     super.key,
     required this.title,
     required this.icon,
     required this.child,
+    required this.color,
   });
 
   final String title;
+  final Color color;
   final IconData icon;
   final Widget child;
 
@@ -25,7 +28,7 @@ class ResultSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, color: AppColors.primary),
+              AppIconBackground(color: color, icon: icon),
               horizontalSpace(10),
               Text(
                 title,
