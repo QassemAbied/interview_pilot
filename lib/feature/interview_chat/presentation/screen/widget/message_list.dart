@@ -60,7 +60,7 @@ class _MessageListState extends State<MessageList> {
       listener: (context, state) {
         if (state.isEndInterview) {
           context.pop();
-          context.goNamed(
+          context.pushNamed(
             RouteNames.interviewResult,
             pathParameters: {'interviewId': widget.interviewId},
           );
@@ -84,11 +84,6 @@ class _MessageListState extends State<MessageList> {
               if (index < messages.length) {
                 return MessageBubble(message: messages[index]);
               }
-
-              // if (state.isAiTyping && state.streamingText.isEmpty) {
-              //   return const AiTypingBubble();
-              // }
-
               return MessageBubble(
                 message: MessageEntity(
                   id: "stream",
