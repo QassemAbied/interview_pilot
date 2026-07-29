@@ -55,7 +55,6 @@ class _InterviewSetupBodyState extends State<InterviewSetupBody> {
           );
         }
         if (state.status == RequestStatus.success) {
-          //context.read<InterviewChatCubit>().startInterviewMessage(state.interview!);
           context.pop();
           context.pushNamed(
             RouteNames.interview,
