@@ -75,6 +75,7 @@ dependencies:
   date_format: ^2.0.9
   file_picker: ^11.0.2
   syncfusion_flutter_pdf: ^33.2.13
+  firebase_core: ^4.12.1
 
 #dev_dependencies:
 #  flutter_test:

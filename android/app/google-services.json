@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "768997979406",
+    "project_id": "interview-qassem",
+    "storage_bucket": "interview-qassem.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768997979406:android:f0078b452aab531504535f",
+        "android_client_info": {
+          "package_name": "com.example.interview_pilot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFRO4KqQ_iyZ-kEO-yz0w9aquWA4UgRUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
