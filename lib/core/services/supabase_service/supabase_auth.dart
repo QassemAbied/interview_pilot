@@ -10,13 +10,26 @@ class SupAbaseAuth {
     required String email,
     required String password,
   }) async {
-    return await supABase.auth.signInWithPassword(
-      password: password,
-      email: email,
-    );
+    try {
+      final res = await supABase.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+
+      print("SUCCESS: $res");
+      return res;
+    } catch (e, s) {
+      print("TYPE = ${e.runtimeType}");
+      print("ERROR = $e");
+      print("STACK = $s");
+      rethrow;
+    }
   }
 
   Future<AuthResponse> signUp({required AuthParams authParams}) async {
+    final response = await Supabase.instance.client.from('profiles').select().limit(1);
+
+    print(response);
     return await supABase.auth.signUp(
       password: authParams.password,
       email: authParams.email,

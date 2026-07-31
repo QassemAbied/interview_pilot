@@ -10,6 +10,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load(fileName: '.env');
+  debugPrint("URL = ${dotenv.env['SUPABASE_URL']}");
+  debugPrint("KEY EXISTS = ${dotenv.env['SUPABASE_ANON_KEY'] != null}");
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SupAbaseInitialization.init();
   await setupInjection();

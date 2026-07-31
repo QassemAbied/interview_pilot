@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:interview_pilot/feature/auth/presentation/controller/auth_cubit.dart';
 import 'package:interview_pilot/feature/home/presentation/screen/widget/greeting_section.dart';
 import 'package:interview_pilot/feature/home/presentation/screen/widget/quick_actions_section.dart';
 import 'package:interview_pilot/feature/home/presentation/screen/widget/recent_interviews_section.dart';
@@ -76,7 +77,9 @@ class HomeBody extends StatelessWidget {
             QuickActionModel(
               title: 'Settings',
               icon: Icons.settings_outlined,
-              onTap: () {},
+              onTap: () {
+                context.read<AuthCubit>().signOut();
+              },
             ),
           ],
         ),
