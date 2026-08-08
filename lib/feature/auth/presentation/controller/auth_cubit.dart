@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/helpers/base_use_case.dart';
 import '../../../../core/utils/enum/request_status.dart';
 import '../../domain/entities/auth_params.dart';
+import '../../domain/entities/update_params.dart';
 import '../../domain/use_case/create_user_use_case.dart';
 import '../../domain/use_case/forget_password_use_case.dart';
 import '../../domain/use_case/get_user_use_case.dart';
@@ -104,7 +105,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-  Future<void> updateUser(AuthParams params) async {
+  Future<void> updateUser(UpdateParams params) async {
     emit(state.copyWith(status: RequestStatus.loading));
 
     final result = await updateUserUseCase(params);
@@ -121,7 +122,6 @@ class AuthCubit extends Cubit<AuthState> {
       (_) async {
         await getUser();
 
-        emit(state.copyWith(status: RequestStatus.success));
       },
     );
   }
