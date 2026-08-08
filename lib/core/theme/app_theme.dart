@@ -52,6 +52,11 @@ abstract class AppTheme {
         borderRadius: AppRadius.br16,
         borderSide: const BorderSide(color: AppColors.border),
       ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: AppRadius.br16,
+        borderSide: const BorderSide(color: AppColors.border),
+      ),
+
 
       focusedBorder: OutlineInputBorder(
         borderRadius: AppRadius.br16,
@@ -68,6 +73,7 @@ abstract class AppTheme {
         borderSide: const BorderSide(color: AppColors.error, width: 1.5),
       ),
     ),
+
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
