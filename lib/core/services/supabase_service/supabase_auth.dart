@@ -2,6 +2,7 @@ import 'package:interview_pilot/core/utils/extension.dart';
 import 'package:interview_pilot/feature/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../feature/auth/domain/entities/auth_params.dart';
+import '../../../feature/auth/domain/entities/update_params.dart';
 
 class SupAbaseAuth {
   final supABase = Supabase.instance.client;
@@ -27,7 +28,10 @@ class SupAbaseAuth {
   }
 
   Future<AuthResponse> signUp({required AuthParams authParams}) async {
-    final response = await Supabase.instance.client.from('profiles').select().limit(1);
+    final response = await Supabase.instance.client
+        .from('profiles')
+        .select()
+        .limit(1);
 
     print(response);
     return await supABase.auth.signUp(
@@ -44,7 +48,6 @@ class SupAbaseAuth {
   Future<void> signOut() async {
     await supABase.auth.signOut();
   }
-
 
   Future<void> createUser({required AuthParams authParams}) async {
     await supABase.from('profiles').insert({
@@ -71,7 +74,7 @@ class SupAbaseAuth {
     return UserModel.fromJson(response);
   }
 
-  Future<void> updateUser({required AuthParams authParams}) async {
+  Future<void> updateUser({required UpdateParams authParams}) async {
     await supABase
         .from('profiles')
         .update({
