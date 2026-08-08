@@ -5,6 +5,8 @@ import 'package:interview_pilot/feature/auth/presentation/screens/register/regis
 import 'package:interview_pilot/feature/auth/presentation/screens/rest_password/rest_password_screen.dart';
 import 'package:interview_pilot/feature/home/presentation/screen/all_interview_list/all_interview_screen.dart';
 import 'package:interview_pilot/feature/interview/presentation/screen/interview_setup/interview_setup_screen.dart';
+import 'package:interview_pilot/feature/profile/screen/profile_screen.dart';
+import 'package:interview_pilot/feature/settings/presentation/screen/settings_screen.dart';
 import 'package:interview_pilot/feature/splash_screen.dart';
 import '../../feature/auth/presentation/screens/login/login_screen.dart';
 import '../../feature/history/presentation/screen/interview_history_screen.dart';
@@ -118,6 +120,16 @@ class AppRoutes {
         final analysis = state.extra as ResumeAnalysisEntity;
         return ResumeResultScreen(analysis: analysis);
       },
+    ),
+    GoRoute(
+      path: RoutePath.settings,
+      name: RouteNames.settings,
+      builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: RoutePath.profile,
+      name: RouteNames.profile,
+      builder: (context, state) => const ProfileScreen(),
     ),
   ];
 }
