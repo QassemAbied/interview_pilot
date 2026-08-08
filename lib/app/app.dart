@@ -13,7 +13,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => sl<AppCubit>()..init()),
-        BlocProvider(create: (_) => sl<AuthCubit>()),
+        BlocProvider(create: (_) => sl<AuthCubit>()..getUser()),
       //  BlocProvider(create: (_) => sl<SetupCubit>()),
       ],
       child: const AppView(),
