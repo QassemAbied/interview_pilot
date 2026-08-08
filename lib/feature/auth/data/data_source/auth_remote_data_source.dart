@@ -1,6 +1,7 @@
 import 'package:interview_pilot/feature/auth/data/models/user_model.dart';
 
 import '../../domain/entities/auth_params.dart';
+import '../../domain/entities/update_params.dart';
 
 abstract class AuthRemoteDataSource {
   Future<void> signOut();
@@ -13,7 +14,7 @@ abstract class AuthRemoteDataSource {
 
   Future<UserModel> getUser();
 
-  Future<void> updateUser({required AuthParams authParams});
+  Future<void> updateUser({required UpdateParams authParams});
 
   Future<void> forgotPassword({required String email});
 

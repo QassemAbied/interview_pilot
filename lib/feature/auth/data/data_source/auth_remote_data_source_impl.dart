@@ -1,6 +1,7 @@
 import 'package:interview_pilot/core/services/supabase_service/supabase_auth.dart';
 import 'package:interview_pilot/feature/auth/data/models/user_model.dart';
 import '../../domain/entities/auth_params.dart';
+import '../../domain/entities/update_params.dart';
 import 'auth_remote_data_source.dart';
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -34,7 +35,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> updateUser({required AuthParams authParams}) async {
+  Future<void> updateUser({required UpdateParams authParams}) async {
     await supAbaseAuth.updateUser(authParams: authParams);
   }
 
