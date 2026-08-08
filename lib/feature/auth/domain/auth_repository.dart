@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import '../../../core/error/Failure.dart';
 import 'entities/auth_params.dart';
+import 'entities/update_params.dart';
 import 'entities/user_entity.dart';
 
 abstract class AuthRepository {
@@ -17,7 +18,7 @@ abstract class AuthRepository {
 
   Future<Either<Failure, UserEntity>> getUser();
 
-  Future<Either<Failure, Unit>> updateUser({required AuthParams authParams});
+  Future<Either<Failure, Unit>> updateUser({required UpdateParams authParams});
 
   Future<Either<Failure, Unit>> forgotPassword({required String email});
 

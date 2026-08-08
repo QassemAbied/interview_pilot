@@ -4,6 +4,7 @@ import '../../../core/error/Failure.dart';
 import '../../../core/helpers/base_repository.dart';
 import '../domain/auth_repository.dart';
 import '../domain/entities/auth_params.dart';
+import '../domain/entities/update_params.dart';
 import '../domain/entities/user_entity.dart';
 import '../domain/mapper/user_mapper.dart';
 import 'data_source/auth_remote_data_source.dart';
@@ -61,7 +62,7 @@ class AuthRepositoryImpl extends BaseRepository implements AuthRepository {
 
   @override
   Future<Either<Failure, Unit>> updateUser({
-    required AuthParams authParams,
+    required UpdateParams authParams,
   }) async {
     return execute(() async {
       await remoteDataSource.updateUser(authParams: authParams);
