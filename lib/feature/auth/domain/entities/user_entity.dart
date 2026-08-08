@@ -20,4 +20,16 @@ class UserEntity {
     required this.updatedAt,
     required this.avatarUrl,
   });
+
+  static final dummy = UserEntity(
+    id: '',
+    name: 'qassem',
+    email: 'qafdsfds@gmail.com',
+    avatarUrl: '',
+    createdAt: DateTime.now(),
+    bio: 'fdsfsdfgdsgvfgvfsdbs',
+    language: 'sdfsad',
+    streakDays: 0,
+    updatedAt: DateTime.now(),
+  );
 }
